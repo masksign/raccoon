@@ -1,0 +1,15 @@
+CRYPTO_ALGNAME	= Raccoon-256-1
+CRYPTO_PUBLICKEYBYTES	= 4064
+CRYPTO_SECRETKEYBYTES	= 26016
+CRYPTO_BYTES		= 20330
+Raccoon-256-1.pk: b48aac1f59722e997006125b128c11da (4064)
+Raccoon-256-1.sk: d42420db34d02465c62e21288f873860 (26016)
+Raccoon-256-1.sm: 4951a986e19fadacaf71ad59654fabf3 (20333)
+verify fail= 0
+=== Bench ===
+Raccoon-256-1	KeyGen()  1024:	   2.462 ms	   5.199 Mcyc
+Raccoon-256-1	  Sign()   512:	   4.764 ms	  10.062 Mcyc
+Raccoon-256-1	Verify()  1024:	   2.156 ms	   4.554 Mcyc
+racc_core.c:265:6:RACCOON_256_1_core_keygen	37088	static
+racc_core.c:324:6:RACCOON_256_1_core_sign	373072	static
+racc_core.c:465:6:RACCOON_256_1_core_verify	82176	static

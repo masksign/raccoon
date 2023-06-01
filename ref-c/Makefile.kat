@@ -1,0 +1,22 @@
+#	Makefile for NIST KAT files
+
+#	called with different IUT parameters by genkats.sh, or directly:
+#	make -f Makefile.kat IUT="RACCOON_128_8"
+
+#	default value (ignored if set)
+IUT		?=	"RACCOON_128_8"
+
+#	number of vectors
+KATNUM	?=	100
+
+#	name of the generating binary
+XBIN	=	kat/xgen_$(IUT)
+
+#	NIST stuff
+CFLAGS	+=	-DNIST_KAT -D$(IUT) -DKATNUM=$(KATNUM) -I.
+LDLIBS	+=	-lcrypto
+CSRC	+= 	$(wildcard nist/*.c)
+
+#	execute the main makefile
+include	Makefile
+

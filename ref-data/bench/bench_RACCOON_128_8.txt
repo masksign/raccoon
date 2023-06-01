@@ -1,0 +1,15 @@
+CRYPTO_ALGNAME	= Raccoon-128-8
+CRYPTO_PUBLICKEYBYTES	= 2256
+CRYPTO_SECRETKEYBYTES	= 14912
+CRYPTO_BYTES		= 11524
+Raccoon-128-8.pk: d8d1079d64fc2d968ba74b8be614203b (2256)
+Raccoon-128-8.sk: 94c4bbcc169aaca32cba37f3dfcec91c (14912)
+Raccoon-128-8.sm: 2e820f503680a4bf3b93d6e4e49923db (11527)
+verify fail= 0
+=== Bench ===
+Raccoon-128-8	KeyGen()   512:	   4.457 ms	   9.413 Mcyc
+Raccoon-128-8	  Sign()   256:	   8.361 ms	  17.658 Mcyc
+Raccoon-128-8	Verify()  4096:	   0.784 ms	   1.656 Mcyc
+racc_core.c:265:6:RACCOON_128_8_core_keygen	49472	static
+racc_core.c:324:6:RACCOON_128_8_core_sign	328144	static
+racc_core.c:465:6:RACCOON_128_8_core_verify	53488	static

@@ -1,0 +1,15 @@
+CRYPTO_ALGNAME	= Raccoon-192-1
+CRYPTO_PUBLICKEYBYTES	= 3160
+CRYPTO_SECRETKEYBYTES	= 18840
+CRYPTO_BYTES		= 14544
+Raccoon-192-1.pk: 7726626d0b4669c236b2caf41d025ed8 (3160)
+Raccoon-192-1.sk: bf258dfcb1b47c042870245f60254443 (18840)
+Raccoon-192-1.sm: 8f266eaf26dd436b214af8cb0169b8ab (14547)
+verify fail= 0
+=== Bench ===
+Raccoon-192-1	KeyGen()  2048:	   1.540 ms	   3.252 Mcyc
+Raccoon-192-1	  Sign()  1024:	   3.248 ms	   6.860 Mcyc
+Raccoon-192-1	Verify()  2048:	   1.309 ms	   2.764 Mcyc
+racc_core.c:265:6:RACCOON_192_1_core_keygen	28896	static
+racc_core.c:324:6:RACCOON_192_1_core_sign	233808	static
+racc_core.c:465:6:RACCOON_192_1_core_verify	65776	static
