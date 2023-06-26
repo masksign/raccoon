@@ -165,7 +165,6 @@ int main()
         iter *= 2;
         crypto_sign_keypair(pk, sk);
         crypto_sign(sm, &smlen, msg, mlen, sk);
-        crypto_sign(sm, &smlen, msg, mlen, sk);
         ts = cpu_clock_secs();
         cc = plat_get_cycle();
 
