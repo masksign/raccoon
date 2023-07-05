@@ -6,7 +6,7 @@ Copyright (c) 2023 Raccoon Signature Team. See LICENSE.
     the randombutes() call in the NIST KAT testing suite.
 """
 
-from Crypto.Cipher import AES
+from symmetric import AES
 
 class NIST_KAT_DRBG:
     def __init__(self, seed):
