@@ -1,0 +1,46 @@
+name: Check NIST kats
+
+on:
+  - push
+  - pull_request
+
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+  cancel-in-progress: true
+
+jobs:
+  check_python_kat:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ref-py
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+          cache: 'pip'
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+      - name: Generate KATs
+        run: python test_genkat.py
+      - name: Check checksums
+        run: sha256sum -c ../SHA256SUMS
+
+  check_c_kat:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ref-c
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Generate KATs
+        run: ./genkats.sh
+      - name: Check checksums
+        run: |
+          cd kat
+          sha256sum -c ../../SHA256SUMS
