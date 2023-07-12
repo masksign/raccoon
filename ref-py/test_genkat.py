@@ -55,7 +55,7 @@ def nist_kat_rsp(iut, katnum=100):
             _fmt_int(fh, "smlen", len(sm))
             _fmt_hex(fh, "sm", sm)
             fh.write('\n')
-            assert iut.byte_open(sm, sk) == (True, msg)
+            assert iut.byte_open(sm, pk) == (True, msg)
 
 def checksums(iut):
     """Print quick version-control checksums."""
