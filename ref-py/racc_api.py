@@ -5,7 +5,7 @@ Copyright (c) 2023 Raccoon Signature Team. See LICENSE.
 === Masked Raccoon signature scheme: Serialization, parameters, BUFF interface.
 """
 
-from Crypto.Hash import SHAKE256
+from symmetric import SHAKE256
 from nist_kat_drbg import NIST_KAT_DRBG
 from mask_random import MaskRandom
 from racc_core import Raccoon
